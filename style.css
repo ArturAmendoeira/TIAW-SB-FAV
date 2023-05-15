@@ -1,0 +1,260 @@
+style.css * {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+
+}
+
+.footer-link {
+    text-decoration: none;
+    color: white;
+
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+#footer_content {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 3.5rem;
+
+}
+
+#footer_contacts h1 {
+    margin-bottom: 0.75rem;
+
+}
+
+#footer_social_media {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+
+}
+
+#footer_social_media .footer-link {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#instagram {
+    background: linear-gradient(#7f3769, #ff2992, #ff9807);
+    border-radius: 50%;
+    color: inherit;
+    padding: 3px;
+
+}
+
+#facebook {
+    background-color: rgb(39, 39, 177);
+    border-radius: 50%;
+    color: inherit;
+    padding: 3px;
+}
+
+#whatsapp {
+    background-color: green;
+    border-radius: 50%;
+    color: inherit;
+    padding: 3px;
+}
+
+footer img {
+    margin-bottom: 15px;
+}
+
+#footer_social_media .footer-link {
+    font-size: 1.25rem;
+}
+
+.footer-list {
+    display: flex;
+    list-style: none;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 20px;
+}
+
+#footer_subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#input_group {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+
+
+}
+
+#input_group input {
+    padding: 0.75rem;
+    width: 100%;
+}
+
+#input_group button {
+    background-color: rgb(105, 13, 13);
+    border: none;
+    color: white;
+    padding: 0px 1.25rem;
+    font-size: 1.125rem;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer
+}
+
+#footer_copyright {
+    text-align: center;
+    border-top: 1px solid white;
+    background-color: rgb(105, 13, 13);
+}
+
+.footer_link .instagram {
+    color: white;
+}
+
+@media screen and (max-width:768px) {
+    #footer_content {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
+
+    #footer_subscribe {
+        display: none;
+    }
+
+
+
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+header {
+    border-bottom: 3px solid red;
+    background-color: black;
+    display: flex;
+
+
+}
+
+header ul {
+    display: flex;
+    font-size: large;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+header li {
+
+    margin-left: 50px;
+    position: relative;
+    top: 37px;
+    font-size: 19px;
+    background-color: inherit;
+
+
+
+}
+
+header img {
+    margin: 20px;
+}
+
+header #pesquisa {
+    color: inherit;
+    position: relative;
+    /* left: 590px; */
+    top: 25px;
+    border: 2px solid lightcoral;
+    background-color: red;
+    border-radius: 40%;
+    padding: 15px;
+    width: 20px;
+    height: 20px;
+    transition: 1s;
+
+    margin-left: auto;
+    margin-right: 25px;
+
+
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+header #pesquisa:active {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+main {
+    background-color: black;
+    color: white;
+}
+
+main .img-name {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(182, 23, 23);
+    font-weight: bold;
+    background-color: rgb(153, 150, 150);
+    
+}
+main .img-name1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(153, 150, 150);
+}
+main .search-bar {
+    padding: 20px;
+}
+
+main .search-bar #input-search input {
+    background-color: rgb(24, 24, 24);
+    border-color: rgb(182, 23, 23);
+    color: white;
+}
+
+main .search-bar #input-search input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    /* Firefox */
+}
+
+main .search-bar #input-search input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: white;
+}
+
+.fav{
+    color: rgb(182, 23, 23);
+    font-weight: bold;
+}
