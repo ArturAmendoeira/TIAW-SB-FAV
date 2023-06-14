@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 
 <head>
-    <title>Searched Boovies</title>
+    <title>Pesquisa</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" a href="style.css">
     <title>Footer</title>
-    <script src = "script.js" type="application/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-bar {
+            background-color: #000000;
+            padding: 20px;
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .footer {
+            background-color: black;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,108 +54,12 @@
                     </svg></a></li>
         </ul>
     </header>
-    <main>
-        <div class="search-bar">
-            <div id="input-search" class="d-flex align-items-center">
-                <form class="w-100 me-3" role="search">
-                    <input id = "input-search" type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
-                </form>
+
+    <input type="text" id="searchInput" placeholder="Digite sua pesquisa">
+    <ul id="resultsList"></ul>
 
 
-            </div>
-        </div>
-        <div class="container text-center">
-            <!--Esse era meu código HTML para o container antes de emplementar o "DOM".
-                <div class="row">
-                <div class="col">
-                    <div class="img-name1">
-                        LIVRO
-                    </div>
-                    <img src="titulos/100 anosdesolidao.jpg"  width="100%" height="580px" onclick="redirecionar('Cem anos de solidão')"/>
-                    <div class="img-name">
-                        Cem anos de solidão - 1967
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img-name1">
-                        LIVRO
-                    </div>
-                    <img src="titulos/guerra-dos-mundos.png" width="100%" height="580px" />
-                    <div class="img-name">
-                        A guerra dos mundos - 1897
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img-name1">
-                        LIVRO
-                    </div>
-                    <img src="titulos/clube-da-luta.jfif" width="100%" height="580px" />
-                    <div class="img-name">
-                        Clube da luta - 1996
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="img-name1">
-                        LIVRO
-                    </div>
-                    <img src="titulos/senhor-dos-anel.jfif" width="100%" height="580px" />
-                    <div class="img-name">
-                        O senhor dos anéis - As duas torres - 1954
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img-name1">
-                        FILME
-                    </div>
-                    <img src="titulos/Orgulho e preconceito.jpg" width="100%" height="580px" onclick="redirecionar('https://www.papodecinema.com.br/filmes/orgulho-preconceito/')"/>
-                    <div class="img-name">
-                        Orgulho e preconceito - 2005
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img-name1">
-                        FILME
-                    </div>
-                    <img src="titulos/a cor que caiu do espaço.jpg" width="100%" height="580px" onclick="redirecionar('https://www.papodecinema.com.br/filmes/a-cor-que-caiu-do-espaco/')"/>
-                    <div class="img-name">
-                        A cor que caiu do espaço - 2019
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="img-name1">
-                        FILME
-                    </div>
-                    <img src="titulos/O iluminado.jpg" width="100%" height="580px" onclick="redirecionar('https://www.papodecinema.com.br/filmes/o-iluminado/')"/>
-                    <div class="img-name">
-                        O iluminado - 1980
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img-name1">
-                        LIVRO
-                    </div>
-                    <img src="titulos/Os-miseráveis.jpg" width="100%" height="580px" />
-                    <div class="img-name">
-                        Os miseráveis - 1862
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img-name1">
-                        FILME
-                    </div>
-
-                    <img src="titulos/o senhor dos aneis.jpg" width="100%" height="580px" onclick="redirecionar('https://www.papodecinema.com.br/filmes/o-senhor-dos-aneis-o-retorno-do-rei/img3-1082')">
-                    <div class="img-name">
-                        O senhor dos anéis - O retorno do Rei - 2003
-                    </div>
-                </div>
-            </div-->
-        </div>
-    </main>
+    <div style="height: 600px; background-color: black;"></div>
     <footer>
 
         <div id="footer_content">
@@ -216,6 +143,144 @@
             2023 all rights reserved
         </div>
     </footer>
+    <script>
+        function iniciarStorage() {
+            localStorage.setItem("favoritos", JSON.stringify([]));
+            inserirFavorito("LIVRO", "Cem anos de solidão", "100 anosdesolidao.jpg", "1967", "https://books.google.com.br/books?id=MAqQDwAAQBAJ&printsec=frontcover&hl=pt-BR#v=onepage&q&f=false");
+            inserirFavorito("LIVRO", "A guerra dos mundos", "guerra-dos-mundos.png", "1897", "https://books.google.com.br/books?id=lOq-DgAAQBAJ&printsec=frontcover&hl=pt-BR#v=onepage&q&f=false");
+            inserirFavorito("LIVRO", "Clube da luta", "clube-da-luta.jfif", "1996", "https://books.google.com.br/books?id=oUMg6nsMljEC&printsec=frontcover&hl=pt-BR#v=onepage&q&f=false");
+            inserirFavorito("LIVRO", "O senhor dos anéis - as duas torres", "senhor-dos-anel.jfif", "1954", "https://books.google.com.br/books?id=UbKuDwAAQBAJ&printsec=frontcover&hl=pt-BR#v=onepage&q&f=false");
+            inserirFavorito("FILME", "Orgulho e preconceito", "Orgulho e preconceito.jpg", "2005", "https://www.papodecinema.com.br/filmes/orgulho-preconceito/");
+            inserirFavorito("FILME", "A cor que caiu do espaço", "a cor que caiu do espaço.jpg", "2019", "https://www.papodecinema.com.br/filmes/a-cor-que-caiu-do-espaco/");
+            inserirFavorito("FILME", "O iluminado", "O iluminado.jpg", "1980", "https://www.papodecinema.com.br/filmes/o-iluminado/");
+            inserirFavorito("LIVRO", "Os miseráveis", "Os-miseráveis.jpg", "1862", "https://books.google.com.br/books?id=xIbVDgAAQBAJ&printsec=frontcover&hl=pt-BR#v=onepage&q&f=false");
+            inserirFavorito("FILME", "O senhor dos anéis - O retorno do Rei", "o senhor dos aneis.jpg", "2003", "https://www.papodecinema.com.br/filmes/o-senhor-dos-aneis-o-retorno-do-rei/img3-1082");
+            criarFavoritos()
+        }
+        function criarFavoritos() {
+            var container = document.querySelector(".container");
+
+            var favoritos = JSON.parse(localStorage.getItem("favoritos"));
+
+            for (let i = 0; i < favoritos.length; i = i + 3) {
+                var row = document.createElement("div");
+                row.className = "row";
+                container.appendChild(row);
+            }
+
+            for (let j = 0; j < favoritos.length; j++) {
+                (function () {
+                    let titulo = favoritos[j];
+                    var favorito = JSON.parse(localStorage.getItem(titulo));
+
+                    var listItem = document.createElement("div");
+                    listItem.className = "col";
+                    listItem.addEventListener('click', function () {
+                        redirecionar(favorito.titulo);
+                    });
+
+
+                    var divCategoria = document.createElement("div");
+                    divCategoria.className = "img-name1";
+                    divCategoria.textContent = favorito.categoria;
+
+                    var divTitulo = document.createElement("div");
+                    divTitulo.className = "img-name";
+                    divTitulo.textContent = favorito.titulo + " - " + favorito.ano;
+
+                    var imagem = document.createElement("img");
+                    imagem.src = "titulos/" + favorito.imagem;
+                    imagem.style.width = "100%";
+                    imagem.style.height = "580px";
+
+                    var rows = document.getElementsByClassName("row");
+
+                    let rowCount = Math.floor(j / 3);
+                    console.log(rows.length + " - " + rowCount);
+
+                    rows[rowCount].appendChild(listItem);
+
+                    listItem.append(divCategoria);
+                    listItem.append(imagem);
+                    listItem.append(divTitulo);
+                })();
+            }
+
+        }
+
+
+        function inserirFavorito(categoria, titulo, imagem, ano, url) {
+            var favorito = {
+                categoria: categoria,
+                titulo: titulo,
+                imagem: imagem,
+                ano: ano,
+                url: url
+            };
+
+            localStorage.setItem(titulo, JSON.stringify(favorito));
+
+            adicionarNaListaFavoritos(titulo);
+        }
+
+        function adicionarNaListaFavoritos(titulo) {
+            var favoritos = JSON.parse(localStorage.getItem("favoritos"));
+            favoritos.push({ titulo: titulo });
+            localStorage.setItem("favoritos", JSON.stringify(favoritos));
+        }
+
+        function redirecionar(titulo) {
+            console.log(titulo);
+            var favorito = JSON.parse(localStorage.getItem(titulo));
+            console.log(favorito.categoria + " " + favorito.titulo + " " + favorito.ano + " " + favorito.url);
+            window.location.href = favorito.url;
+        }
+
+        function search() {
+            var searchInput = document.getElementById('searchInput').value.toLowerCase();
+            var resultsList = document.getElementById('resultsList');
+            resultsList.innerHTML = '';
+
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                var favorito = JSON.parse(localStorage.getItem(key));
+
+                if (favorito.titulo.toLowerCase().includes(searchInput)) {
+                    var li = document.createElement('li');
+
+                    var img = document.createElement('img');
+                    img.src = favorito.imagem;
+                    img.alt = favorito.titulo;
+                    li.appendChild(img);
+
+                    var titulo = document.createElement('p');
+                    titulo.textContent = favorito.titulo;
+                    li.appendChild(titulo);
+
+                    var categoria = document.createElement('p');
+                    categoria.textContent = favorito.categoria;
+                    li.appendChild(categoria);
+
+                    var ano = document.createElement('p');
+                    ano.textContent = favorito.ano;
+                    li.appendChild(ano);
+
+                    resultsList.appendChild(li);
+                }
+                document.getElementById('searchInput').addEventListener('input', search);
+                document.getElementById('searchInput').addEventListener('keypress', function (event) {
+                    if (event.key === 'Enter') {
+                        search();
+                        event.preventDefault();
+                    }
+
+                });
+            }
+        }
+
+        iniciarStorage();
+
+    </script>
 
 
 
@@ -233,7 +298,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <script>iniciarStorage()</script>
 </body>
 
 </html>

@@ -224,14 +224,16 @@ main .img-name {
     color: rgb(182, 23, 23);
     font-weight: bold;
     background-color: rgb(153, 150, 150);
-    
+
 }
-main .img-name1{
+
+main .img-name1 {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     font-weight: bold;
     background-color: rgb(153, 150, 150);
 }
+
 main .search-bar {
     padding: 20px;
 }
@@ -254,7 +256,30 @@ main .search-bar #input-search input::-ms-input-placeholder {
     color: white;
 }
 
-.fav{
+.fav {
     color: rgb(182, 23, 23);
     font-weight: bold;
+}
+
+main .row {
+    padding-bottom: 25px;
+}
+
+main .row .col img {
+    border: 6px double rgb(182, 23, 23);
+
+
+
+
+}
+
+main .img-name1 {
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+}
+main .img-name {
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
 }
